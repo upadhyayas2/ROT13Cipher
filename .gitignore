@@ -1,24 +1,46 @@
-# Compiled class file
-*.class
+package rot13;
+import java.util.Scanner;
 
-# Log file
-*.log
 
-# BlueJ files
-*.ctxt
+public class ROT13 {
+    // Function to perform ROT13 encoding/decoding
+    public static String applyROT13(String input) {
+        StringBuilder result = new StringBuilder();
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+        for (char c : input.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                char shifted = (char)(((c - 'A' + 13) % 26) + 'A');
+                result.append(shifted);
+            } else if (Character.isLowerCase(c)) {
+                char shifted = (char)(((c - 'a' + 13) % 26) + 'a');
+                result.append(shifted);
+            } else {
+                result.append(c); // keep numbers, symbols unchanged
+            }
+        }
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+        return result.toString();
+    }
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+
+    public static void main(String[] args) {
+       Scanner scanner = new Scanner(System.in);
+        System.out.println(" Welcome to the ROT13 Cipher Tool!");
+
+        while (true) {
+            System.out.print("\nEnter text (or type 'exit' to quit): ");
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("exit")) {
+                System.out.println("Goodbye 👋");
+                break;
+            }
+
+            String output = applyROT13(input);
+            System.out.println("ROT13 Result: " + output);
+        }
+
+        scanner.close();
+    }
+    
+}
