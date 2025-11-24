@@ -1,4 +1,4 @@
-# 🔄 ROT13 Encoder/Decoder in Java
+#  ROT13 Encoder/Decoder in Java
 
 A simple but fun project that encodes and decodes text using the **ROT13 cipher**, built with Java.
 
@@ -6,7 +6,7 @@ This project takes in a message and shifts each letter by 13 places in the alpha
 
 ---
 
-## ✨ Features
+##  Features
 
 - Encode any message using ROT13
 - Decode ROT13 messages back to the original
